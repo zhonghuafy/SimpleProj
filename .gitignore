@@ -1,0 +1,9 @@
+.idea
+.classpath
+.project
+*.iml
+target/
+test/
+.DS_Store
+.gitattributes
+*.log
