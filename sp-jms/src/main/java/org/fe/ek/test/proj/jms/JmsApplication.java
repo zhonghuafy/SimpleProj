@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create: 2020-02-07
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2020-02-07
  **/
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"org.fe.ek.test.proj.jms","org.fe.ek.test.proj.service"})
 @Slf4j
 public class JmsApplication {
 
