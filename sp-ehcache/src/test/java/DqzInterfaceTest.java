@@ -21,10 +21,10 @@ public class DqzInterfaceTest {
 
     @Test
     public void remoteif() {
-        String baseUri = "http://waybill.yundasys.com:11020/waybill/api/json/v2/all";
-        String sys = "V2JWA_YHHX";
-        String apiKey = "3MHYpeYnkMg0y5TU";
-        String shipId = "4303633426409";
+        String baseUri = "http://local:11020/waybill/api/json/v2/all";
+        String sys = "aa";
+        String apiKey = "bb";
+        String shipId = "cc";
         String data = CodecUtil.encodeHexString(apiKey,shipId);
 
         StringBuffer url = new StringBuffer(baseUri);
@@ -42,7 +42,7 @@ public class DqzInterfaceTest {
             ResponseEntity<byte[]> responseEntity = restTemplate.exchange(url.toString(), HttpMethod.GET, httpEntity, byte[].class);
             response = responseEntity.getBody();
             String rawText = new String(response,"utf-8");
-            log.info("[大前置接口调用] {}",rawText);
+            log.info("[接口调用] {}",rawText);
 
         }catch (ResourceAccessException rex) {
             log.error("ResourceAccessException");

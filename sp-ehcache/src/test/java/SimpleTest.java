@@ -4,6 +4,7 @@ import org.fe.ek.test.proj.ehcache.prod.Productor;
 import org.fe.ek.test.model.util.CodecUtil;
 import org.fe.ek.test.common.util.PhoneGen;
 import org.fe.ek.test.common.util.RandomInt;
+import org.fe.ek.test.proj.service.local.BoPortraitGenerator;
 import org.junit.Test;
 
 /**
@@ -30,8 +31,9 @@ public class SimpleTest {
 
     @Test
     public void oneReqPack() {
+        BoPortraitGenerator boPortraitGenerator = new BoPortraitGenerator();
         Productor productor = new Productor();
-        BoPortraitModel model = productor.portrait();
+        BoPortraitModel model = boPortraitGenerator.portrait();
         log.info("list: {}", model.getList().size());
     }
 

@@ -1,4 +1,4 @@
-package org.fe.ek.test.proj.ehcache.cache;
+package org.fe.ek.test.model.cache;
 
 import java.util.concurrent.atomic.AtomicLong;
 

@@ -3,6 +3,7 @@ package org.fe.ek.test.proj.ehcache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @program: TestProj
@@ -11,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create: 2020-01-20
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2020-01-20
  **/
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"org.fe.ek.test.proj.ehcache","org.fe.ek.test.proj.service"})
 @Slf4j
 public class EhCacheApplication {
 
