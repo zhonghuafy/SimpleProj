@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.fe.ek.test.model.model.BoPortraitModel;
 import org.fe.ek.test.proj.jms.JmsApplication;
+import org.fe.ek.test.proj.jms.cons.KafkaConst;
 import org.fe.ek.test.proj.service.local.BoPortraitGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,8 +25,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 public class KafkaTest {
 
-    private final String PORTRAIT_PACK_KAFKA_TOPIC = "PORTRAIT_ORDER_SIGN_PACKAGE_TOPIC1";
-
     @Autowired
     private BoPortraitGenerator boPortraitGenerator;
 
@@ -36,7 +35,7 @@ public class KafkaTest {
     public void send() {
         BoPortraitModel model = boPortraitGenerator.portrait();
         String json = JSONObject.toJSONString(model);
-        kafkaTemplate.send(PORTRAIT_PACK_KAFKA_TOPIC,json);
+        kafkaTemplate.send(KafkaConst.PORTRAIT_PACK_KAFKA_TOPIC,json);
         log.info("[KafkaTest] KafkaTest pushed to kafka successfully.");
     }
 }
