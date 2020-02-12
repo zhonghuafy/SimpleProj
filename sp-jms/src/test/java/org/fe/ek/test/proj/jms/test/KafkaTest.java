@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -28,10 +29,14 @@ public class KafkaTest {
     @Autowired
     private BoPortraitGenerator boPortraitGenerator;
 
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
+
     @Test
     public void send() {
         BoPortraitModel model = boPortraitGenerator.portrait();
         String json = JSONObject.toJSONString(model);
+        kafkaTemplate.send(PORTRAIT_PACK_KAFKA_TOPIC,json);
         log.info("[KafkaTest] KafkaTest pushed to kafka successfully.");
     }
 }
