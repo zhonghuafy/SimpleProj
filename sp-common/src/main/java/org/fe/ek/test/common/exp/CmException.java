@@ -2,7 +2,7 @@ package org.fe.ek.test.common.exp;
 
 /**
  * @program: TestProj
- * @description: CmException
+ * @description: common exception
  * @author: Wang Zhenhua
  * @create: 2020-01-21
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2020-01-21

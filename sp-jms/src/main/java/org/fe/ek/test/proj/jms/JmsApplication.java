@@ -16,7 +16,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JmsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JmsApplication.class,args);
+//        SpringApplication.run(JmsApplication.class,args);
+        SpringApplication app = new SpringApplication(JmsApplication.class);
+        app.addListeners(new JmsStartup());
+        app.run(args);
+        log.info("EhCacheApplication started successfully");
         log.info("JmsApplication started successfully");
     }
 }

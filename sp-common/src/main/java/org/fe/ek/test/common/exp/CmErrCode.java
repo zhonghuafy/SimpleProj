@@ -2,7 +2,7 @@ package org.fe.ek.test.common.exp;
 
 /**
  * @program: SimpleProj
- * @description: CmErrCode
+ * @description: common error code
  * @author: Wang Zhenhua
  * @create: 2020-02-07
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2020-02-07
