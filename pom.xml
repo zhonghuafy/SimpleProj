@@ -14,6 +14,7 @@
         <module>sp-model</module>
         <module>sp-service</module>
         <module>sp-basic</module>
+        <module>sp-redis</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -110,6 +111,13 @@
             <!--                <artifactId>kafka-clients</artifactId>-->
             <!--                <version>${apache.kafka.version}</version>-->
             <!--            </dependency>-->
+
+            <!-- redis -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${springboot.verison}</version>
+            </dependency>
 
             <!-- itextpdf -->
             <dependency>
