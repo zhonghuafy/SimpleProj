@@ -7,6 +7,12 @@ import org.fe.ek.test.common.util.RandomInt;
 import org.fe.ek.test.proj.service.local.BoPortraitGenerator;
 import org.junit.Test;
 
+import java.time.*;
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
 /**
  * @program: TestProj
  * @description: SimpleTest
@@ -51,5 +57,31 @@ public class SimpleTest {
         String result = CodecUtil.encodeHexString(apiKey,shipId);
         log.info("result: {}", result);
         log.info("compare: {}", "d974f1834fb55d9c2dc4ebc9cda841ac".equals(result));
+    }
+
+    @Test
+    public void testDuration() {
+        Date start = Date.from(LocalDate.of(2019,9,1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date end = Date.from(LocalDate.of(2021,2,1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Instant startInstant = start.toInstant();
+        Instant endInstant = end.toInstant();
+        log.info("instant compare: {}", startInstant.compareTo(endInstant));
+        log.info("duration: {}", ChronoUnit.DAYS.between(startInstant,endInstant));
+        Period period = Period.between(startInstant.atZone(ZoneId.systemDefault()).toLocalDate(), LocalDate.now());
+        log.info("period: month: {}, days: {}", period.getMonths(), period.getDays());
+    }
+
+    @Test
+    public void testsublist() {
+        List<String> list = Arrays.asList("a","b","c","d","e", "f", "g");
+        int index = 0;
+        while (index < list.size()) {
+            int endIndex = Math.min(index + 2, list.size());
+            List<String> subList = list.subList(index, endIndex);
+            index = endIndex;// 调用韵呼宝接口
+            subList.forEach(a -> a = "ss");
+        }
+        //"a","b","c","d","e", "f", "g"
+        list.forEach(log::info);
     }
 }

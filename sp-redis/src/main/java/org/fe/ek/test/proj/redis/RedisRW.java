@@ -49,6 +49,15 @@ public class RedisRW {
         return stringRedisTemplate.opsForValue().get(REDIS_PREFIX + key);
     }
 
+    /**
+     * Returns the values of all specified keys.
+     * For every key that does not hold a string value or does not exist,
+     * the special value nil is returned. Because of this, the operation never fails.<br/>
+     * mget command will ineffective on redis cluster for different keys hashed on different node.
+     * hash-tag can be used to made keys mapped on one node. exp. {key_tag}.key1
+     * @param keyList
+     * @return
+     */
     public List<String> getString(@NotEmpty List<String> keyList) {
         List<String> list = keyList.stream().map(a -> REDIS_PREFIX + a).collect(Collectors.toList());
         return stringRedisTemplate.opsForValue().multiGet(list);

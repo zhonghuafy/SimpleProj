@@ -1,5 +1,6 @@
 package org.fe.ek.test.common.util;
 
+import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
@@ -9,6 +10,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
@@ -22,6 +24,20 @@ import java.util.Date;
 public class DateFormatUtil {
 
     private DateFormatUtil(){}
+
+    /**
+     * convert given date to a string with given pattern (default: "YYYY-MM-dd HH:mm:ss")
+     * @param date
+     * @param pattern
+     * @return
+     */
+    public static String format(@NotNull Date date, String pattern) {
+        if (StringUtils.isEmpty(pattern)) {
+            pattern = "YYYY-MM-dd HH:mm:ss";
+        }
+        DateFormat format = new SimpleDateFormat(pattern);
+        return date == null ? "" : format.format(date);
+    }
 
     /**
      * convert given date to a string with 'YYYY-MM-dd HH:mm:ss'
@@ -80,6 +96,16 @@ public class DateFormatUtil {
      */
     public static  int getCurYear() {
         return Year.now().getValue();
+    }
+
+    /**
+     * Calculates the amount of time between two temporal objects.
+     * @param start
+     * @param end
+     * @return
+     */
+    public static long durationDays(@NotNull Date start, @NotNull Date end) {
+        return ChronoUnit.DAYS.between(start.toInstant(), end.toInstant());
     }
 
 }
