@@ -1,8 +1,10 @@
 package org.fe.ek.test.proj.es.service;
 
+import org.fe.ek.test.proj.es.dto.page.ElasticPage;
 import org.fe.ek.test.proj.es.dto.req.GsOrderStatRequest;
 import org.fe.ek.test.proj.es.dto.res.GsOrderStatResponse;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,4 +29,21 @@ public interface IEsStatisticService {
      * @return
      */
     Map<String, Long> groupByDay(GsOrderStatRequest request);
+
+    /**
+     * select * from order_oos_*
+     * where gs=gs time >= start and time <= end
+     * @param request
+     * @param page
+     * @return json format documents in collection
+     */
+    List<String> listDoc(GsOrderStatRequest request, ElasticPage page);
+
+    /**
+     * select count(*) from order_oos_*
+     * where gs=gs time >= start and time <= end
+     * @param request
+     * @return
+     */
+    Long count(GsOrderStatRequest request);
 }
