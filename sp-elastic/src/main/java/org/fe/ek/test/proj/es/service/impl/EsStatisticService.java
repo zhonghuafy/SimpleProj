@@ -49,7 +49,7 @@ public class EsStatisticService implements IEsStatisticService {
 
     /**
      * select gs, partner_id, count(*) from order_oos_*
-     * where gs=gs time >= start and time <= end
+     * where gs=gs time >= start and time <= end and (status=refuse or status=accept)
      * group by gs, partner_id
      *
      * @param request
@@ -61,7 +61,8 @@ public class EsStatisticService implements IEsStatisticService {
             SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
             //query parameters
             sourceBuilder.query(queryBuilder(request));
-            sourceBuilder.aggregation(AggregationBuilders.terms("gs_count").field("gs").subAggregation(AggregationBuilders.terms("part_count").field("partner_id")));
+            // use size() to indicate how many term buckets should be returned, default is 10
+            sourceBuilder.aggregation(AggregationBuilders.terms("gs_count").field("gs").subAggregation(AggregationBuilders.terms("part_count").field("partner_id").size(10)));
             SearchRequest searchRequest = new SearchRequest("order_oos_*");
             searchRequest.source(sourceBuilder);
             //call es and process result
@@ -102,7 +103,7 @@ public class EsStatisticService implements IEsStatisticService {
 
     /**
      * select date, count(*) from order_oos_*
-     * where gs=gs time >= start and time <= end
+     * where gs=gs time >= start and time <= end and (status=refuse or status=accept)
      * group by date
      * use Date histogram aggregation
      * see: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-datehistogram-aggregation.html
@@ -144,8 +145,9 @@ public class EsStatisticService implements IEsStatisticService {
     }
 
     /**
+     * query by page
      * select * from order_oos_*
-     * where gs=gs time >= start and time <= end
+     * where gs=gs time >= start and time <= end and (status=refuse or status=accept)
      * @param request
      * @param page
      * @return json format documents in collection
@@ -174,7 +176,7 @@ public class EsStatisticService implements IEsStatisticService {
 
     /**
      * select count(*) from order_oos_*
-     * where gs=gs time >= start and time <= end
+     * where gs=gs time >= start and time <= end and (status=refuse or status=accept)
      * @param request
      * @return
      */
@@ -196,6 +198,8 @@ public class EsStatisticService implements IEsStatisticService {
 
     /**
      * set query conditions
+     * where gs=gs time >= start and time <= end and status in (refuse, accept)
+     *
      * @param request
      * @return
      */
@@ -207,6 +211,10 @@ public class EsStatisticService implements IEsStatisticService {
                 QueryBuilders.rangeQuery("time")
                         .from(DateFormatUtil.format(request.getStart(), "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
                         .to(DateFormatUtil.format(request.getEnd(), "yyyy-MM-dd'T'HH:mm:ss.SSSZ")));
+        BoolQueryBuilder shouldBuilder = QueryBuilders.boolQuery();
+        shouldBuilder.should(QueryBuilders.matchQuery("status", "refuse"));
+        shouldBuilder.should(QueryBuilders.matchQuery("status", "accept"));
+        boolQueryBuilder.must(shouldBuilder);
         return boolQueryBuilder;
     }
 }
