@@ -16,6 +16,7 @@
         <module>sp-basic</module>
         <module>sp-redis</module>
         <module>sp-elastic</module>
+        <module>sp-websocket</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -44,6 +45,12 @@
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${springboot.verison}</version>
             </dependency>
@@ -63,6 +70,12 @@
                 <groupId>net.sf.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
                 <version>${ehcache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
+                <version>${springboot.verison}</version>
             </dependency>
 
             <!-- validation -->

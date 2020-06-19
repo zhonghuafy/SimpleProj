@@ -6,10 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import javax.validation.constraints.NotNull;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Year;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
@@ -106,6 +103,37 @@ public class DateFormatUtil {
      */
     public static long durationDays(@NotNull Date start, @NotNull Date end) {
         return ChronoUnit.DAYS.between(start.toInstant(), end.toInstant());
+    }
+
+    /**
+     * convert date to local date
+     * @param someday
+     * @return
+     */
+    public static LocalDate convertDateToLocalDate(@NotNull Date someday) {
+        Instant instant = someday.toInstant();
+        return instant.atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    /**
+     * convert date to local date
+     * @param someday
+     * @return
+     */
+    public static LocalDateTime convertDateToLocalDateTime(@NotNull Date someday) {
+        Instant instant = someday.toInstant();
+        return instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    /**
+     * 指定日期比今天晚或相同
+     * @param someday
+     * @return
+     */
+    public static boolean isAfterToday(@NotNull Date someday) {
+        LocalDate somelocal = Instant.ofEpochMilli(someday.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now();
+        return today.isBefore(somelocal);
     }
 
 }
