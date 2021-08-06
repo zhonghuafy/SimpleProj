@@ -136,4 +136,13 @@ public class DateFormatUtil {
         return today.isBefore(somelocal);
     }
 
+    /**
+     * 获取指定日期时间的 long 时间
+     * @param dateTime
+     * @return
+     */
+    public static Long getLong(@NotNull LocalDateTime dateTime) {
+        return dateTime.toInstant(OffsetDateTime.now().getOffset()).toEpochMilli();
+    }
+
 }
