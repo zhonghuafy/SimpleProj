@@ -35,7 +35,7 @@
         <com-itextpdf.version>5.5.13</com-itextpdf.version>
         <druid.version>1.1.20</druid.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
-        <myql.verison>8.0.18</myql.verison>
+        <myql.verison>8.0.28</myql.verison>
         <spring-retry.version>1.2.4.RELEASE</spring-retry.version>
         <org-aspectj.version>1.9.5</org-aspectj.version>
         <es.version>7.4.0</es.version>
