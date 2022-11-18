@@ -6,8 +6,6 @@ Nothing else.
 Thanks
 
 By Joshua<br/>
-twitter: @zhonghuafy <br/>
-blog: zhonghuafy.wordpress.com
 
 ************
 Representation below shows every module's usage.
