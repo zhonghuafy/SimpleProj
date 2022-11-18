@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        group: DEFAULT_GROUP
+        server-addr: localhost:8848
+        namespace: c2897240-442e-4e0e-be5a-eef34d65341d
+  config:
+    import:
+      - optional:nacos:sp-structure-application-dev.yml
