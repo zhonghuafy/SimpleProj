@@ -10,6 +10,11 @@ By Joshua<br/>
 ************
 Representation below shows every module's usage.
 
+sp-stucture-application<br/>
+Today(2022-11-18) I added this new module. This is a very dependency one, for it have everything to running itself.
+A single application using a lot component as nacos, sentinel, redis, es, mysql, mq and more. 
+This is a independent new laboratory.
+
 sp-basic:<br/>
 This is a data access module for database, including mybatis mappers, data models and services. But now it has nothing.
 

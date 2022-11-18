@@ -17,6 +17,7 @@
         <module>sp-redis</module>
         <module>sp-elastic</module>
         <module>sp-websocket</module>
+        <module>sp-stucture-application</module>
     </modules>
 
     <parent>
