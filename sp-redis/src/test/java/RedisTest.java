@@ -1,19 +1,21 @@
 import lombok.extern.slf4j.Slf4j;
 import org.fe.ek.test.proj.redis.RedisApplication;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.connection.StringRedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @program: SimpleProj
@@ -22,7 +24,7 @@ import java.util.Map;
  * @create: 2020-03-06
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2020-03-06
  **/
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = RedisApplication.class)
 @Slf4j
 public class RedisTest {
@@ -44,6 +46,8 @@ public class RedisTest {
         String value = "{\"mailNo\": \"3927272070523\",\"receiveMobile\": \"18852908905\"}";
         String key2 = "18802329035";
         String value2 = "4303756343134";
+        stringRedisTemplate.opsForValue().set(key, value, 30, TimeUnit.DAYS);
+        log.info("redis key {} value {}", key, stringRedisTemplate.opsForValue().get(key));
 //        delete(rekey);
 
 //        setString(key, value);
@@ -56,10 +60,10 @@ public class RedisTest {
 //        log.info("data: {}", getHash(rekey, key));
 //        log.info("data: {}", getHash(rekey, key2));
 
-        stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).rightPush(rekey);
-        log.info("list: {}", stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).index(0));
-        log.info("list: {}", stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).leftPop());
-        log.info("list size: {}", stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).size());
+//        stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).rightPush(rekey);
+//        log.info("list: {}", stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).index(0));
+//        log.info("list: {}", stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).leftPop());
+//        log.info("list size: {}", stringRedisTemplate.boundListOps(REDIS_PREFIX + rekey).size());
     }
 
     /**

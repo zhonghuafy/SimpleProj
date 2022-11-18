@@ -1,15 +1,15 @@
 package org.fe.ek.test.proj.es.test;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.fe.ek.test.proj.es.dto.req.GsOrderStatRequest;
 import org.fe.ek.test.proj.es.dto.res.GsOrderStatResponse;
 import org.fe.ek.test.proj.es.service.impl.EsStatisticService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -23,7 +23,7 @@ import java.util.Map;
  * @create: 2020-03-18
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2020-03-18
  **/
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
 public class ESTest {

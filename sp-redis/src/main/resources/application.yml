@@ -2,7 +2,7 @@ spring:
   redis:
     # 单机
     host: localhost
-    port: 9400
+    port: 6379
     # 集群
 #    cluster:
 #      nodes: 10.19.185.11:6014,10.19.185.12:6014,10.19.185.13:6014

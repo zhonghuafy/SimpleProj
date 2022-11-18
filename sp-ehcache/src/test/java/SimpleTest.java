@@ -5,7 +5,7 @@ import org.fe.ek.test.model.util.CodecUtil;
 import org.fe.ek.test.common.util.PhoneGen;
 import org.fe.ek.test.common.util.RandomInt;
 import org.fe.ek.test.proj.service.local.BoPortraitGenerator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;

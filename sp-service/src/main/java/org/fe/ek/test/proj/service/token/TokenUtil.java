@@ -1,6 +1,6 @@
 package org.fe.ek.test.proj.service.token;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import org.fe.ek.test.common.util.SHA256;
 import org.fe.ek.test.model.constant.SysConst;
 

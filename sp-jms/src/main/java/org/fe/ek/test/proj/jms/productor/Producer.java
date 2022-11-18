@@ -1,6 +1,6 @@
 package org.fe.ek.test.proj.jms.productor;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.fe.ek.test.model.model.BoPortraitModel;
 import org.fe.ek.test.proj.service.local.BoPortraitGenerator;
