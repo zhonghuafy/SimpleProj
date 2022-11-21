@@ -17,7 +17,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @SpringBootApplication
 @Slf4j
 @EnableDiscoveryClient
-@RefreshScope
 @MapperScan("org.fe.ek.test.proj.stucture.dao.*")
 public class StructureApplication {
 
