@@ -8,3 +8,4 @@ spring:
   config:
     import:
       - optional:nacos:${spring.application.name}-${spring.profiles.active}.yml
+      - optional:nacos:${spring.application.name}-tyy-${spring.profiles.active}.yml
