@@ -18,6 +18,7 @@
         <module>sp-elastic</module>
         <module>sp-websocket</module>
         <module>sp-structure-application</module>
+        <module>sp-structure-upper-application</module>
     </modules>
 
     <parent>

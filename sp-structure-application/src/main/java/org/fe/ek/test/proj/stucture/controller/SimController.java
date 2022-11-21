@@ -3,6 +3,7 @@ package org.fe.ek.test.proj.stucture.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import lombok.extern.slf4j.Slf4j;
 import org.fe.ek.test.common.po.ResultPO;
+import org.fe.ek.test.proj.stucture.feign.ServbFeignClient;
 import org.fe.ek.test.proj.stucture.service.ISimService;
 import org.fe.ek.test.proj.stucture.util.BlockHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,20 @@ public class SimController {
     @Autowired
     private ISimService simService;
 
+    @Autowired
+    private ServbFeignClient servbFeignClient;
+
     @PostMapping("/strConf")
     @SentinelResource(value = "strConf", blockHandlerClass = BlockHandler.class, blockHandler = "handleBlock")
     public ResultPO getStrConfig() {
         String nacosExamp = simService.getConfig();
         log.info("nacos config: {}", nacosExamp);
         return ResultPO.success(nacosExamp);
+    }
+
+    @PostMapping("/upperStr")
+    public ResultPO getBservStr() {
+        return servbFeignClient.getBserResp();
     }
 
 }

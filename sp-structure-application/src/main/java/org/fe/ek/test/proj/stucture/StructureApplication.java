@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @program: SimpleProj
@@ -18,6 +19,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @Slf4j
 @EnableDiscoveryClient
 @MapperScan("org.fe.ek.test.proj.stucture.dao.*")
+@EnableFeignClients
 public class StructureApplication {
 
     public static void main(String[] args) {

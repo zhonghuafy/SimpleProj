@@ -1,0 +1,15 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /sp-structure-upper
+
+spring:
+  application:
+    name: sp-structure-upper-application
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+        namespace: c2897240-442e-4e0e-be5a-eef34d65341d
