@@ -7,7 +7,7 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @program: usercenter-portrait
+ * @program: SimpleProj
  * @description: RestTemplate Configuration
  * @author: Wang Zhenhua
  * @create: 2020-05-28
