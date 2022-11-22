@@ -6,7 +6,7 @@ import org.fe.ek.test.common.po.ResultPO;
 
 /**
  * @program: SimpleProj
- * @description: DefaultFallbackService
+ * @description: FallbackHandler
  * @author: Wang Zhenhua
  * @create: 2022-11-22
  * @version: v1.0.0 创建文件, Wang Zhenhua, 2022-11-22
@@ -14,6 +14,11 @@ import org.fe.ek.test.common.po.ResultPO;
 @Slf4j
 public class FallbackHandler {
 
+    /**
+     * sentinel default fallback
+     * @param tr
+     * @return
+     */
     public static ResultPO sentinelFallback(Throwable tr) {
         log.info("fallback", tr);
         return new ResultPO(CmErrCode.E100007);
