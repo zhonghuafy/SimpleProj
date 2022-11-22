@@ -21,6 +21,9 @@ public class SimSerController {
     @PostMapping("/resp")
     public ResultPO resp() {
         log.info("upper b service");
+        try {
+            Thread.sleep(10);
+        }catch (Exception ignore) {}
         return ResultPO.success("upper service server response");
     }
 }
