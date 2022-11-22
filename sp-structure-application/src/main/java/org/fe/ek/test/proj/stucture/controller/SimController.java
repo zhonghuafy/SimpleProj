@@ -57,7 +57,7 @@ public class SimController {
      * @return
      */
     @PostMapping("/circuit")
-    @SentinelResource(value = "circuit", fallbackClass = FallbackHandler.class, fallback = "sentinelFallback")
+    @SentinelResource(value = "circuit", fallbackClass = FallbackHandler.class, defaultFallback = "sentinelFallback")
     public ResultPO circuit() {
         log.info("circuit breaker test");
         SleepUtil.sleep(500);
