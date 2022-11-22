@@ -9,3 +9,7 @@ spring:
     import:
       - optional:nacos:${spring.application.name}-${spring.profiles.active}.yml
       - optional:nacos:${spring.application.name}-tyy-${spring.profiles.active}.yml
+
+feign:
+  sentinel:
+    enabled: true
