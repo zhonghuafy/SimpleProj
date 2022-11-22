@@ -55,7 +55,7 @@
         <myql.verison>8.0.31</myql.verison>
         <spring-retry.version>1.3.4</spring-retry.version>
         <org-aspectj.version>1.9.7</org-aspectj.version>
-        <es.version>7.4.0</es.version>
+        <es.version>7.17.7</es.version>
     </properties>
 
     <dependencyManagement>
