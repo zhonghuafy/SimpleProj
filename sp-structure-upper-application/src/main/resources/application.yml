@@ -13,3 +13,8 @@ spring:
         server-addr: localhost:8848
         group: DEFAULT_GROUP
         namespace: c2897240-442e-4e0e-be5a-eef34d65341d
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8181
+      eager: true
