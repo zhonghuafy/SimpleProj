@@ -1,4 +1,4 @@
-package org.fe.ek.test.proj.stucture.util;
+package org.fe.ek.test.proj.stucture.util.sentinel;
 
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.fastjson2.JSON;

@@ -1,8 +1,6 @@
 package org.fe.ek.test.proj.stucture.feign;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.fe.ek.test.common.po.ResultPO;
-import org.fe.ek.test.proj.stucture.util.DefaultFallbackService;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 
