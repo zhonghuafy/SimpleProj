@@ -1,0 +1,6 @@
+server:
+  port: 7272
+
+spring:
+  application:
+    name: sp-split-excel-application
