@@ -50,7 +50,7 @@
         <alibaba-fastjson2.version>2.0.18</alibaba-fastjson2.version>
         <apache.kafka.version>2.3.0</apache.kafka.version>
         <hibernate.validation.version>6.0.17.Final</hibernate.validation.version>
-        <com-itextpdf.version>5.5.13</com-itextpdf.version>
+        <com-itextpdf.version>5.5.13.3</com-itextpdf.version>
         <druid.version>1.2.14</druid.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <myql.verison>8.0.31</myql.verison>
